@@ -1,1 +1,16 @@
-/* Custom CSS goes here */
+main {
+  text-align: center;
+  margin-top: 2em;
+}
+iframe {
+  width: 100%;
+  margin-top: 2em;
+}
+h2 {
+  margin-top: -.5em;
+  font-size: 4em;
+}
+img.weather-icon {
+  width:10em;
+  height: 10em;
+}
