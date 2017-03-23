@@ -1,1 +1,37 @@
 /* Custom CSS goes here */
+body {
+  text-align: center;
+  background-color: #4248AD;
+  letter-spacing: .5em;
+}
+
+
+h1.title {
+  font-family: 'Allerta Stencil', sans-serif;
+  color: #FDF0D5;
+  margin-top: 300px;
+  margin-bottom: 50px;
+}
+
+h2.results-city {
+  color: #B19731;
+}
+
+.row {
+  color: #EDDFA6;
+}
+
+form.getWeatherData {
+  margin: 10px;
+}
+.weather-city {
+  color: #EDDFA6;
+  font-family: 'Allerta Stencil', sans-serif;
+}
+
+input {
+  color: white;
+  background-color: #B1DDF1;
+  border: 1px;
+  border-radius: 5px;
+}
