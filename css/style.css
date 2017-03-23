@@ -1,1 +1,15 @@
-/* Custom CSS goes here */
+body {
+  background-color: #BCCCE0;
+  font-family: 'Raleway', sans-serif;
+}
+
+i {
+  font-size: 65px;
+  color: white;
+  text-align: center;
+}
+.flag-icon {
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
