@@ -37,7 +37,7 @@ $(function(){
       $('.results').find('.results-city').text(city).append('<img src="'+iconUrl+'"/>');
       $('.temperature-container .temperature').text(temperature + ' F');
       $('.humidity-container .humidity').text(humidity);
-      $('#flag').html('<img src='+flagUrl+' />');
+      $('#flag').html('<img height="40px" width="60" src='+flagUrl+' />');
 
 
     });
