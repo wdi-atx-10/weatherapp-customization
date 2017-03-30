@@ -17,7 +17,6 @@ $(function(){
       }
 
     });
-
     // if it gets info or request successfully
     getWeather.done(function(response){
       // console.log(response);
