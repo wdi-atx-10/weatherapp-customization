@@ -29,7 +29,7 @@ h2 {
   font-size: 25px;
 }
 
-.row form-row {
+.row.row-form {
   float: left;
 }
 
