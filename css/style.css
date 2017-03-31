@@ -1,1 +1,38 @@
 /* Custom CSS goes here */
+body {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 14px;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+.getWeatherData {
+  width: 100%;
+  margin: 11px;
+}
+
+.flag img {
+  width: 50%;
+}
+
+.icon img {
+  width: 25%;
+}
+
+.temperature-containter{
+  font-size: 25px;
+}
+
+.row.row-form {
+  float: left;
+}
+
+.map {
+  margin: 20px;
+}
