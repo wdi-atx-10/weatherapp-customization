@@ -27,7 +27,7 @@ $(document).ready(function(){
 
     /*These two blocks are called promises*/
     getWeather.done(function(response){
-      // console.log('success', response);
+      // set variables for data pulled
       var city = response.name;
       var temperature = response.main.temp;
       var humidity = response.main.humidity;
@@ -36,7 +36,7 @@ $(document).ready(function(){
       var lon = response.coord.lon;
       var lat = response.coord.lat;
       var weatherId = response.weather[0].id;
-      console.log(city, temperature, humidity, description, countryCode, lon, lat);
+
       //put API response into the page
       $('.results .results-city').text(city); //set text value of result-city to city
       $('.temperature-container .temperature').text(temperature.toFixed(0) + String.fromCharCode(176)); //set text value of temperature span to temperature
@@ -47,24 +47,25 @@ $(document).ready(function(){
       $('.city-error').hide(); //hide error if city is valid
       $('iframe').attr('src', googleUrl + lat + ',' + lon +"&zoom=10"); //add latitude and longitude of city to google url and zoom to designated
 
-      //change background based on weather
+      //change background based on weatherId
       console.log(weatherId);
       if (weatherId >= 200 && weatherId < 300){
         $('body').css('background-image', 'url("https://upload.wikimedia.org/wikipedia/commons/8/88/Thunderstorm_003.jpg")')
       } else if (weatherId >= 300 && weatherId < 400){
-        $('body').css('background-image', 'url("https://cdn.pixabay.com/photo/2015/08/03/22/25/rain-874041_960_720.jpg")')
+        $('body').css('background-image', 'url("https://upload.wikimedia.org/wikipedia/commons/d/de/Regen-auf-Windschutzscheibe-mit-Aussicht.jpg")')
       } else if (weatherId >= 500 && weatherId < 600){
         $('body').css('background-image', 'url("https://cdn.pixabay.com/photo/2013/06/07/15/34/rain-122691_960_720.jpg")')
-      } else if (weatherId >= 600 && weatherId < 700){
+      } else if (weatherId >= 600 && weatherId < 700 || weatherId === 903){
         $('body').css('background-image', 'url("https://upload.wikimedia.org/wikipedia/commons/b/b2/UK_snow_February_2%2C_2009_img008.jpg")')
       } else if (weatherId >= 600 && weatherId < 700){
         $('body').css('background-image', 'url("https://static.pexels.com/photos/3176/mountains-forest-fog-mist.jpeg")')
       } else if (weatherId > 800 && weatherId < 806 || weatherId === 905 || weatherId >= 952 && weatherId	< 960) {
         $('body').css('background-image', 'url("https://static.pexels.com/photos/928/sky-clouds-cloudy-blue.jpg")')
+      }  else if (weatherId >= 900 && weatherId < 903 || weatherId === 906 || weatherId >=957 && weatherId <963){
+          $('body').css('background-image', 'url("http://maxpixel.freegreatpicture.com/static/photo/1x/Breakwater-Stormy-Water-Spray-Sea-Wave-Windy-379252.jpg")');
       } else {
         $('body').css('background-image', 'url("https://static.pexels.com/photos/197340/pexels-photo-197340.jpeg")')
-      }
-
+      };
     });
     getWeather.fail(function(error){
       console.log('fail', error);
@@ -76,6 +77,7 @@ $(document).ready(function(){
     })
   }
 
+  //get 5 day forecast
   function getForecast(city){
     var getForecast = $.ajax({
       url : apiUrl + "forecast",
@@ -88,12 +90,15 @@ $(document).ready(function(){
       }
     });
 
-    /*These two blocks are called promises*/
     getForecast.done(function(response){
-        //put API response into the page
+
+      //loop through array of responses to forecast query
       for (var j=0; j<response.list.length; j++){
+
+        //obtain weatherId to map to icon
         var iconId = response.list[j].weather[0].id;
-        // var iconUrl = "http://openweathermap.org/img/w/"
+
+        //create array for weekday names
         var weekday=new Array(7);
         weekday[0]="Sunday";
         weekday[1]="Monday";
@@ -103,28 +108,33 @@ $(document).ready(function(){
         weekday[5]="Friday";
         weekday[6]="Saturday";
 
+        //set variable d to be the date converted from date data in forecast response
         var d = new Date(response.list[j].dt_txt);
+
+        //map d variable to day of week in weekday array
         var dayOfWeek = weekday[d.getDay()];
 
+        //convert the next day in array response to date format
         var dNext = new Date(response.list[j+1].dt_txt);
+
+        //map next day to day of week in weekday array
         var nextDay = weekday[dNext.getDay()];
 
+        //if the current day of the week is equal to next day, skip the next day in the loop
         if(dayOfWeek === nextDay){
           continue
+        //otherwise, append a div to forecast containing day, temp, and weather description
         } else {
           $('.forecast').append(
             '<div class="day-container">' +
               '<div class="day">' + dayOfWeek +'</div>' +
               '<span>'+response.list[j].main.temp.toFixed(0)+ String.fromCharCode(176)+'</span>' + //display temperature
               '<span>'+ response.list[j].weather[0].main+'</span>' + //display weather description
-              '<i class="owf owf-'+ iconId+ ' owf-4x">' +
+              '<i class="owf owf-'+ iconId+ ' owf-4x">' + //add weather icon
             '</div>'
-          ); //add weather icon
-          }
+          );
+        };
       }
-
-
-
     });
     getForecast.fail(function(error){
       console.log('fail', error);
@@ -148,14 +158,14 @@ $(document).ready(function(){
       $('.forecast').html('');
       getForecast(city); //pass the city into getForecast function
     });
-  }
+  };
 
   //flow of web app, sets up how page will run
   function main(){
     getWeatherData('Austin'); //default city
-    getForecast('Austin');
-    setHandlers();
-  }
+    getForecast('Austin'); //default city forecast
+    setHandlers(); //set event handlers
+  };
 
 main();
 //end of doc ready
