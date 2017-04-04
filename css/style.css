@@ -1,1 +1,9 @@
 /* Custom CSS goes here */
+html, body {
+}
+
+main {
+  background: rgba(25,75,25,.5);
+  padding: 250px;
+  text-align: center;
+}
