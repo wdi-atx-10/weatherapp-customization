@@ -1,3 +1,7 @@
+Added customization to starter weather app using Open Weather Map API. Added Google Maps functionality and background that changes based on weather.
+
+--
+
 Now that we have built a basic weather app, let's go ahead and make it our own! Inside of this repository is the starter code from the beginning of class, go ahead and paste in your own code when you are ready to submit it via pull request.
 
 ## Convert to Fahrenheit
