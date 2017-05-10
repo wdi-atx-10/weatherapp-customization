@@ -6,7 +6,7 @@ console.log('am i sane any more?');
 
 $(document).ready(function(){
 
-  var apiUrl = "http://api.openweathermap.org/data/2.5/",
+  var apiUrl = "https://api.openweathermap.org/data/2.5/",
    apiKey = "9f7fe3b0ceb0a7cf1e86812469152bc0";
 
   var googleApiKey = "AIzaSyAa2u92tcl2RE-2MYZ-iHw3hPrBaV6S0hs", googleUrl = "https://www.google.com/maps/embed/v1/view?key="+googleApiKey+"&center=";
