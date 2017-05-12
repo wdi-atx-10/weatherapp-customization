@@ -3,44 +3,70 @@
   <head>
     <meta charset="utf-8">
     <title>Single Page App</title>
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://websygen.github.io/owfont/css/owfont-regular.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.8.0/css/flag-icon.min.css" rel="stylesheet">
   </head>
   <body>
     <main class="weather-app container">
 
+    <!--Weather City Input Row-->
       <div class="row form-row">
         <div class="col-md-4 col-md-offset-4">
           <h1 class="title">Weather App</h1>
           <form class="getWeatherData">
             <input type="text" class="weather-city" placeholder="Enter a city.."/>
-            <input type="submit" value="Get Weather">
+            <input class="button" type="submit" value="Get Weather">
             <p class="city-error" style="display:none;">Whoops! Looks like that city doesn't exist, try another one.</p>
           </form>
         </div>
       </div>
 
+    <!--Daily Result Section-->
       <div class="row">
         <div class="col-md-4 col-md-offset-4 results">
+          <div class="information">
 
-          <h2 class="results-city"></h2>
+            <div class="weather-icon">
+              <i></i>
+            </div>
 
+            <div class="display-city">
+              <h2 class="results-city"></h2>
+              <h1><span class="flag-icon"></span></h1>
+            </div>
 
-          <div class="temperature-container">
-            <span class="temperature-label"><strong>Temperature: </strong></span>
-            <span class="temperature"></span>
+            <div class="temperature-container">
+              <span class="temperature-label"><strong>Temperature: </strong></span>
+              <span class="temperature"></span>
+            </div>
+
+            <div class="humidity-container">
+              <span class="humidity-label"><strong>Humidity: </strong></span>
+              <span class="humidity"></span>
+            </div>
+
+            <div class="description-container">
+              <span class="description-label"></span>
+              <span class="description"></span>
+            </div>
           </div>
 
-          <div class="humidity-container">
-            <span class="humidity-label"><strong>Humidity: </strong></span>
-            <span class="humidity"></span>
-          </div>
+        </div>
+      </div>
 
-          <div class="description-container">
-            <span class="description-label"></span>
-            <span class="description"></span>
+      <!--container for 5 day forecast-->
+      <div class="row">
+          <div class="forecast">
           </div>
+      </div>
 
+      <!--google maps-->
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <iframe frameborder="0"  allowfullscreen></iframe>
         </div>
       </div>
 

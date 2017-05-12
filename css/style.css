@@ -1,1 +1,79 @@
-/* Custom CSS goes here */
+body {
+  margin: 0 auto;
+  text-align: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: 'Raleway', sans-serif;
+}
+
+.button {
+  background-color: white;
+  border: 1px solid lightgrey;
+  border-radius: 25px;
+  padding: 5px;
+}
+
+.button:hover {
+  background-color: darkgrey;
+}
+
+.title {
+  margin: 10% 0;
+}
+
+.weather-icon {
+  height: 100px;
+  width: auto;
+}
+
+.display-city, iframe {
+  margin: 3% 0;
+}
+
+.display-city h2, .display-city h1 {
+  display: inline;
+  padding: 5px;
+}
+
+.weather-app {
+  background-color: rgba(255,255,255,0.7);
+  width: 90%;
+}
+
+.information {
+  margin-top: 10%;
+  padding-bottom: 10%;
+  width:100%;
+}
+
+iframe {
+  width: 100%;
+  height: 250px;
+  border: none;
+  text-shadow: black 0 0 5px;
+}
+
+.day-container {
+  display: inline;
+  margin: 20%;
+}
+
+.forecast{
+  margin-left: 15%;
+  display: flex;
+  flex-direction: row;
+  width: 18%;
+}
+.forecast span, .forecast i{
+  display: block;
+}
+
+.day {
+  font-size: 150%;
+  width: 20%;
+}
+
+i {
+  color: white;
+  text-shadow: black 0 0 5px;
+}
